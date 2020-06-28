@@ -1,9 +1,10 @@
 sudo: required
+language: generic
 services:
   - docker
 
 before_install:
-  - docker build -t anyarybalova/docker-ci-react -f Dockerfile.dev
+  - docker build -t anyarybalova/docker-ci-react -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true anyarybalova/docker-ci-react npm run test
